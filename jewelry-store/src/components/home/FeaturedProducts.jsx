@@ -12,11 +12,11 @@ export default function FeaturedProducts() {
   });
 
   return (
-    <section className="py-24 bg-obsidian-light">
+    <section className="py-24 bg-obsidian-light relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <p className="section-subtitle">Handpicked</p>
-          <h2 className="section-title">Featured Pieces</h2>
+          <p className="section-subtitle">Hot Right Now</p>
+          <h2 className="section-title">Most Wanted Gold Drops</h2>
           <DividerCenter className="mt-4" />
         </div>
 

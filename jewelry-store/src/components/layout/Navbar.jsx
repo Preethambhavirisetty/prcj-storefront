@@ -17,12 +17,12 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-obsidian/95 backdrop-blur-md border-b border-border">
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+    <header className="sticky top-0 z-50 px-3 sm:px-5 pt-3">
+      <nav className="max-w-7xl mx-auto glass-panel rounded-full px-5 sm:px-7 flex items-center justify-between h-16 shadow-float">
         {/* Brand mark */}
         <Link
           to="/"
-          className="font-serif text-xl tracking-[0.2em] text-ivory hover:text-gold transition-colors"
+          className="font-serif text-xl sm:text-2xl tracking-[0.24em] text-ivory hover:text-gold transition-colors"
           aria-label="PRCJ Home"
         >
           {SITE_CONFIG.brand.name}
@@ -36,7 +36,7 @@ export default function Navbar() {
                 to={to}
                 end={end}
                 className={({ isActive }) =>
-                  `text-xs font-sans tracking-widest uppercase transition-colors ${
+                  `text-[11px] font-sans tracking-[0.2em] uppercase transition-colors ${
                     isActive ? 'text-gold' : 'text-ivory-muted hover:text-ivory'
                   }`
                 }
@@ -51,7 +51,7 @@ export default function Navbar() {
         <div className="flex items-center gap-4">
           <Link
             to="/cart"
-            className="relative text-ivory-muted hover:text-gold transition-colors"
+            className="relative text-ivory-muted hover:text-gold transition-colors p-2 rounded-full border border-border/70 hover:border-gold/60"
             aria-label={`Cart, ${itemCount} item${itemCount !== 1 ? 's' : ''}`}
           >
             <svg
@@ -73,7 +73,7 @@ export default function Navbar() {
 
           {/* Mobile hamburger */}
           <button
-            className="md:hidden text-ivory-muted hover:text-gold transition-colors"
+            className="md:hidden text-ivory-muted hover:text-gold transition-colors p-2 rounded-full border border-border/70 hover:border-gold/60"
             onClick={() => setMenuOpen((o) => !o)}
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={menuOpen}
@@ -93,8 +93,8 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden bg-obsidian-light border-t border-border animate-fade-in">
-          <ul className="flex flex-col py-4">
+        <div className="md:hidden mt-3 glass-panel rounded-3xl border border-border/80 animate-fade-in overflow-hidden">
+          <ul className="flex flex-col py-3">
             {NAV_LINKS.map(({ to, label, end }) => (
               <li key={to}>
                 <NavLink
@@ -102,7 +102,7 @@ export default function Navbar() {
                   end={end}
                   onClick={() => setMenuOpen(false)}
                   className={({ isActive }) =>
-                    `block px-6 py-3 text-xs font-sans tracking-widest uppercase transition-colors ${
+                    `block px-6 py-3 text-[11px] font-sans tracking-[0.2em] uppercase transition-colors ${
                       isActive ? 'text-gold' : 'text-ivory-muted hover:text-ivory'
                     }`
                   }

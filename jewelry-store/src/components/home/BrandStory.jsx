@@ -3,9 +3,9 @@ import { Divider } from '../ui/Divider.jsx';
 
 export default function BrandStory() {
   return (
-    <section className="py-24 bg-obsidian">
+    <section className="py-24 bg-obsidian relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 overflow-hidden">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 overflow-hidden rounded-3xl border border-border/70 shadow-float">
           {/* Image */}
           <div className="relative aspect-[4/3] lg:aspect-auto lg:min-h-[500px] overflow-hidden">
             <img

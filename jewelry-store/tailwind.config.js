@@ -5,26 +5,29 @@ export default {
     extend: {
       colors: {
         obsidian: {
-          DEFAULT: '#0A0A0A',
-          light: '#111111',
-          medium: '#1A1A1A',
+          DEFAULT: '#07080D',
+          light: '#11141D',
+          medium: '#181B26',
         },
         gold: {
-          DEFAULT: '#C9A84C',
-          light: '#E8C87A',
-          muted: '#8B6914',
-          pale: '#F5E6C8',
+          DEFAULT: '#D9B45B',
+          light: '#F2D78A',
+          muted: '#9E7A2C',
+          pale: '#FAEBC5',
         },
+        champagne: '#F2E3B4',
+        copper: '#D7864F',
+        teal: '#4EC5BC',
         ivory: {
-          DEFAULT: '#F5F5F0',
-          muted: '#D4D4CE',
+          DEFAULT: '#FCF8EE',
+          muted: '#CFC6B2',
         },
         surface: '#111111',
-        border: '#2A2A2A',
+        border: '#2B3243',
       },
       fontFamily: {
-        serif: ['"Playfair Display"', 'Georgia', 'serif'],
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+        sans: ['"Sora"', '"Avenir Next"', 'system-ui', 'sans-serif'],
       },
       fontSize: {
         'display-2xl': ['4.5rem', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
@@ -69,9 +72,12 @@ export default {
         'gold-gradient': 'linear-gradient(135deg, #C9A84C 0%, #E8C87A 50%, #C9A84C 100%)',
         'dark-gradient': 'linear-gradient(180deg, #0A0A0A 0%, #111111 100%)',
         'hero-overlay': 'linear-gradient(to right, rgba(10,10,10,0.85) 40%, transparent 100%)',
+        'aurora-gold':
+          'radial-gradient(circle at 25% 20%, rgba(215,182,94,0.32), transparent 52%), radial-gradient(circle at 82% 12%, rgba(78,197,188,0.2), transparent 45%), radial-gradient(circle at 70% 80%, rgba(215,134,79,0.2), transparent 45%)',
       },
       boxShadow: {
         'gold-glow': '0 0 20px rgba(201,168,76,0.25)',
+        float: '0 28px 50px rgba(0,0,0,0.45)',
         'card-hover': '0 20px 60px rgba(0,0,0,0.6)',
         'inner-gold': 'inset 0 1px 0 rgba(201,168,76,0.3)',
       },

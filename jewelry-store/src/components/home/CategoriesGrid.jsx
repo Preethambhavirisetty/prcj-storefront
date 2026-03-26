@@ -11,7 +11,8 @@ export default function CategoriesGrid() {
   });
 
   return (
-    <section className="py-24 bg-obsidian">
+    <section className="py-24 bg-obsidian relative overflow-hidden">
+      <div className="absolute inset-0 bg-aurora-gold opacity-70" aria-hidden="true" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <p className="section-subtitle">Browse By</p>
@@ -22,12 +23,12 @@ export default function CategoriesGrid() {
         {isLoading ? (
           <PageSpinner />
         ) : (
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 relative">
             {categories?.map((cat) => (
               <Link
                 key={cat.id}
                 to={`/collections/${cat.id}`}
-                className="group relative overflow-hidden aspect-[3/4] block"
+                className="group relative overflow-hidden aspect-[3/4] block rounded-2xl border border-border/70 hover:border-gold/60 transition-all duration-300 hover:-translate-y-1"
               >
                 {/* Image */}
                 <img
@@ -37,7 +38,7 @@ export default function CategoriesGrid() {
                   loading="lazy"
                 />
                 {/* Overlay */}
-                <div className="absolute inset-0 bg-obsidian/50 group-hover:bg-obsidian/30 transition-colors duration-400" />
+                <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/35 to-transparent group-hover:from-obsidian/80 transition-colors duration-400" />
                 {/* Label */}
                 <div className="absolute bottom-0 left-0 right-0 p-6">
                   <h3 className="font-serif text-xl text-ivory mb-1">{cat.label}</h3>

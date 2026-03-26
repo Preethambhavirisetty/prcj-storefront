@@ -11,8 +11,11 @@ function randomOrderNo() {
   return 'PRCJ-' + Math.floor(100000 + Math.random() * 900000);
 }
 
-export default function Confirmation() {
+export default function Confirmation({ contact }) {
   const orderNo = randomOrderNo();
+  const email = contact?.email || SITE_CONFIG.contact.email;
+  const phone = contact?.phone || SITE_CONFIG.contact.phone;
+  const name = contact?.name || 'Guest Customer';
 
   return (
     <div className="flex flex-col items-center justify-center text-center py-12 max-w-md mx-auto gap-6">
@@ -25,26 +28,34 @@ export default function Confirmation() {
 
       <div>
         <h2 className="font-serif text-display-md text-ivory mb-2">Thank You</h2>
-        <p className="text-ivory-muted">Your order has been placed successfully.</p>
+        <p className="text-ivory-muted">Your order has been submitted successfully.</p>
       </div>
 
       <div className="bg-obsidian-light border border-border p-6 w-full text-left space-y-3">
+        <div className="flex justify-between text-sm">
+          <span className="text-ivory-muted">Guest Name</span>
+          <span className="text-ivory font-medium">{name}</span>
+        </div>
         <div className="flex justify-between text-sm">
           <span className="text-ivory-muted">Order Number</span>
           <span className="text-ivory font-medium">{orderNo}</span>
         </div>
         <div className="flex justify-between text-sm">
-          <span className="text-ivory-muted">Estimated Delivery</span>
+          <span className="text-ivory-muted">Expected Follow-up</span>
           <span className="text-ivory">{getDeliveryDate()}</span>
         </div>
         <div className="flex justify-between text-sm">
           <span className="text-ivory-muted">Confirmation sent to</span>
-          <span className="text-ivory">your email</span>
+          <span className="text-ivory break-all">{email}</span>
+        </div>
+        <div className="flex justify-between text-sm">
+          <span className="text-ivory-muted">Phone</span>
+          <span className="text-ivory">{phone}</span>
         </div>
       </div>
 
       <p className="text-xs text-ivory-muted">
-        Our team will contact you on WhatsApp to confirm your order and arrange delivery.
+        Your order has been submitted and someone from our team will reach out shortly to assist you.
       </p>
 
       <Link to="/collections" className="btn-primary">

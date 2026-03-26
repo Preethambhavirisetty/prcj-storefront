@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Sora:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -11,6 +13,11 @@
   }
   body {
     @apply bg-obsidian text-ivory font-sans antialiased m-0;
+    background-image:
+      radial-gradient(circle at 5% -10%, rgba(242, 215, 138, 0.22), transparent 38%),
+      radial-gradient(circle at 85% -15%, rgba(78, 197, 188, 0.15), transparent 35%),
+      linear-gradient(165deg, #07080d 0%, #0d111a 38%, #0b0f19 100%);
+    background-attachment: fixed;
   }
   #root {
     min-height: 100svh;
@@ -35,13 +42,13 @@
   }
 
   .btn-primary {
-    @apply bg-gold text-obsidian font-sans font-medium tracking-wider uppercase text-xs px-8 py-3
-           hover:bg-gold-light transition-colors duration-200 inline-block cursor-pointer;
+    @apply bg-gold text-obsidian font-sans font-semibold tracking-[0.16em] uppercase text-[11px] px-8 py-3
+           hover:bg-gold-light transition-all duration-200 inline-block cursor-pointer rounded-full shadow-gold-glow;
   }
 
   .btn-ghost {
-    @apply border border-gold text-gold font-sans font-medium tracking-wider uppercase text-xs px-8 py-3
-           hover:bg-gold hover:text-obsidian transition-colors duration-200 inline-block cursor-pointer;
+    @apply border border-gold/60 text-gold font-sans font-semibold tracking-[0.16em] uppercase text-[11px] px-8 py-3
+           hover:bg-gold hover:text-obsidian transition-all duration-200 inline-block cursor-pointer rounded-full;
   }
 
   .section-title {
@@ -50,5 +57,9 @@
 
   .section-subtitle {
     @apply text-ivory-muted text-sm tracking-widest uppercase mb-8;
+  }
+
+  .glass-panel {
+    @apply bg-obsidian-light/70 border border-border/60 backdrop-blur-xl;
   }
 }

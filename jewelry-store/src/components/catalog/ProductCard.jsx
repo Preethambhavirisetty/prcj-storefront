@@ -36,7 +36,7 @@ export default function ProductCard({ product }) {
   return (
     <Link
       to={`/product/${product.slug}`}
-      className="group block bg-obsidian-light overflow-hidden"
+      className="group block rounded-3xl glass-panel overflow-hidden border border-border/80 hover:border-gold/60 transition-all duration-300 hover:-translate-y-1 hover:shadow-float"
       aria-label={`View ${product.name}`}
     >
       {/* Image container */}
@@ -44,15 +44,16 @@ export default function ProductCard({ product }) {
         <img
           src={product.thumbnail}
           alt={product.name}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
           loading="lazy"
         />
+        <div className="absolute inset-0 bg-gradient-to-t from-obsidian/65 via-transparent to-transparent" />
 
         {/* Hover overlay */}
-        <div className="absolute inset-0 bg-obsidian/0 group-hover:bg-obsidian/40 transition-colors duration-400 flex items-end justify-center pb-6 opacity-0 group-hover:opacity-100">
+        <div className="absolute inset-0 bg-obsidian/0 group-hover:bg-obsidian/20 transition-colors duration-400 flex items-end justify-center pb-6 opacity-0 group-hover:opacity-100">
           <button
             onClick={handleAddToCart}
-            className="btn-primary text-xs"
+            className="btn-primary text-xs shadow-gold-glow"
             aria-label={`Add ${product.name} to cart`}
           >
             Add to Cart
@@ -69,7 +70,7 @@ export default function ProductCard({ product }) {
         {/* Customizable indicator */}
         {product.isCustomizable && (
           <div className="absolute top-3 right-3">
-            <span className="text-[9px] font-sans tracking-wider uppercase bg-obsidian/80 text-ivory-muted px-2 py-1">
+            <span className="text-[9px] font-sans tracking-wider uppercase bg-obsidian/80 text-champagne px-2 py-1 rounded-full border border-gold/40">
               Custom
             </span>
           </div>
@@ -77,13 +78,13 @@ export default function ProductCard({ product }) {
       </div>
 
       {/* Info */}
-      <div className="p-4">
+      <div className="p-5">
         <p className="text-[10px] text-gold tracking-widest uppercase mb-1">{product.category}</p>
-        <h3 className="font-serif text-ivory text-base leading-snug mb-2 group-hover:text-gold transition-colors duration-200">
+        <h3 className="font-serif text-ivory text-xl leading-snug mb-2 group-hover:text-gold transition-colors duration-200">
           {product.name}
         </h3>
         <div className="flex items-baseline gap-2">
-          <span className="text-ivory-muted text-sm">
+          <span className="text-champagne text-base">
             {formatPrice(product.approxPriceLow)}
           </span>
           {product.approxPriceHigh > product.approxPriceLow && (

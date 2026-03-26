@@ -19,38 +19,45 @@ function Field({ label, id, required, ...props }) {
 
 export default function ShippingForm({ onNext }) {
   const [data, setData] = useState({
-    firstName: '', lastName: '', email: '', phone: '',
-    address1: '', address2: '', city: '', state: '', zip: '', country: 'India',
+    name: '',
+    email: '',
+    phone: '',
   });
 
   const set = (k) => (e) => setData((d) => ({ ...d, [k]: e.target.value }));
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onNext(data);
+
+    const email = data.email.trim();
+    const phone = data.phone.trim();
+    const name = data.name.trim();
+    const phoneIsValid = /^[+]?[\d\s()-]{7,20}$/.test(phone);
+
+    if (!name || !email || !phoneIsValid) return;
+    onNext({ name, email, phone });
   };
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6 max-w-lg mx-auto">
-      <h2 className="font-serif text-2xl text-ivory mb-6">Shipping Details</h2>
-      <div className="grid grid-cols-2 gap-4">
-        <Field label="First Name" id="firstName" value={data.firstName} onChange={set('firstName')} required placeholder="Priya" />
-        <Field label="Last Name" id="lastName" value={data.lastName} onChange={set('lastName')} required placeholder="Sharma" />
-      </div>
+      <h2 className="font-serif text-2xl text-ivory mb-6">Guest Details</h2>
+      <p className="text-ivory-muted text-sm">
+        Enter your contact details to submit this order. Our team will reach out to confirm next steps.
+      </p>
+      <Field label="Full Name" id="name" value={data.name} onChange={set('name')} required placeholder="Priya Sharma" />
       <Field label="Email" id="email" type="email" value={data.email} onChange={set('email')} required placeholder="priya@example.com" />
-      <Field label="Phone" id="phone" type="tel" value={data.phone} onChange={set('phone')} required placeholder="+91 98765 43210" />
-      <Field label="Address Line 1" id="address1" value={data.address1} onChange={set('address1')} required placeholder="Door No. / Street" />
-      <Field label="Address Line 2 (Optional)" id="address2" value={data.address2} onChange={set('address2')} placeholder="Apartment, locality" />
-      <div className="grid grid-cols-2 gap-4">
-        <Field label="City" id="city" value={data.city} onChange={set('city')} required placeholder="Hyderabad" />
-        <Field label="State" id="state" value={data.state} onChange={set('state')} required placeholder="Telangana" />
-      </div>
-      <div className="grid grid-cols-2 gap-4">
-        <Field label="PIN Code" id="zip" value={data.zip} onChange={set('zip')} required placeholder="500001" />
-        <Field label="Country" id="country" value={data.country} onChange={set('country')} required />
-      </div>
+      <Field
+        label="Phone"
+        id="phone"
+        type="tel"
+        value={data.phone}
+        onChange={set('phone')}
+        required
+        pattern="^[+]?[\d\s()-]{7,20}$"
+        placeholder="+1 (555) 123-4567"
+      />
       <Button type="submit" variant="primary" size="lg" className="w-full mt-4">
-        Continue to Payment
+        Continue to Submit Order
       </Button>
     </form>
   );

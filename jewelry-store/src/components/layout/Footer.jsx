@@ -4,12 +4,12 @@ import { DividerCenter } from '../ui/Divider.jsx';
 
 export default function Footer() {
   return (
-    <footer className="bg-obsidian-light border-t border-border mt-auto">
+    <footer className="bg-obsidian-light/80 border-t border-border/70 mt-auto backdrop-blur-xl">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           {/* Brand */}
           <div>
-            <h3 className="font-serif text-2xl tracking-[0.15em] text-ivory mb-3">
+            <h3 className="font-serif text-2xl tracking-[0.2em] text-ivory mb-3">
               {SITE_CONFIG.brand.name}
             </h3>
             <p className="text-ivory-muted text-sm leading-relaxed mb-4">
