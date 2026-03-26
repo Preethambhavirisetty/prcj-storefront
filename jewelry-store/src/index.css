@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-obsidian text-ivory font-sans antialiased m-0;
+  }
+  #root {
+    min-height: 100svh;
+  }
+  *:focus-visible {
+    @apply outline outline-2 outline-offset-2 outline-gold;
+  }
+}
+
+@layer components {
+  .text-gold-shimmer {
+    background: linear-gradient(90deg, #C9A84C, #E8C87A, #C9A84C);
+    background-size: 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+
+  .divider-gold {
+    @apply h-px w-16 bg-gold-gradient mx-auto my-6;
+  }
+
+  .btn-primary {
+    @apply bg-gold text-obsidian font-sans font-medium tracking-wider uppercase text-xs px-8 py-3
+           hover:bg-gold-light transition-colors duration-200 inline-block cursor-pointer;
+  }
+
+  .btn-ghost {
+    @apply border border-gold text-gold font-sans font-medium tracking-wider uppercase text-xs px-8 py-3
+           hover:bg-gold hover:text-obsidian transition-colors duration-200 inline-block cursor-pointer;
+  }
+
+  .section-title {
+    @apply font-serif text-display-md text-ivory mb-2;
+  }
+
+  .section-subtitle {
+    @apply text-ivory-muted text-sm tracking-widest uppercase mb-8;
+  }
+}
